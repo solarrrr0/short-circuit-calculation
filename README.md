@@ -57,96 +57,96 @@ I_B=\frac{S_B}{\sqrt{3}U_B}
 
 光伏额定容量按所选输入方式确定：
 
-\[
-S_{\mathrm{PV}}=\frac{P_{\mathrm{PV}}}{\cos\varphi},
-\]
+\$$
+S_{\mathrm{PV}}=\frac{P_{\mathrm{PV}}}{\cos\varphi}
+\$$
 
 或直接采用用户输入的：
 
-\[
-S_{\mathrm{PV}}=S_{\mathrm{PV,input}}.
-\]
+\$$
+S_{\mathrm{PV}}=S_{\mathrm{PV,input}}
+\$$
 
 光伏额定电流和短路贡献为：
 
-\[
-I_{\mathrm{PV,N}}=\frac{S_{\mathrm{PV}}}{\sqrt{3}U_N},
+\$$
+I_{\mathrm{PV,N}}=\frac{S_{\mathrm{PV}}}{\sqrt{3}U_N}
 \qquad
-I_{\mathrm{PV,sc}}=1.5I_{\mathrm{PV,N}}.
-\]
+I_{\mathrm{PV,sc}}=1.5I_{\mathrm{PV,N}}
+\$$
 
 ### 2. 110 kV及以上侧故障电流
 
 对输入 \(X_\Sigma\)、\(X_{\Sigma0}\) 的系统侧，定义：
 
-\[
-k_0=\frac{X_{\Sigma0}}{X_\Sigma}.
-\]
+\$$
+k_0=\frac{X_{\Sigma0}}{X_\Sigma}
+\$$
 
 三相、单相接地短路电流系数为：
 
-\[
-K_3=\frac{1}{X_\Sigma},
+\$$
+K_3=\frac{1}{X_\Sigma}
 \qquad
-K_{1g}=\frac{3}{2X_\Sigma+X_{\Sigma0}}.
-\]
+K_{1g}=\frac{3}{2X_\Sigma+X_{\Sigma0}}
+\$$
 
 两相接地短路系数为：
 
-\[
+\$$
 K_{2g}=
 \frac{
 \sqrt{3}\sqrt{\left(0.5+k_0\right)^2+\left(\frac{\sqrt{3}}{2}\right)^2}
-}{1+2k_0}.
-\]
+}{1+2k_0}
+\$$
 
 程序在该公式内部使用 \(0.5+k_0\)，但不再将其作为独立中间量保存或显示。
 
-\[
-I_{k,\mathrm{sys}}^{(3)}=I_BK_3,
+\$$
+I_{k,\mathrm{sys}}^{(3)}=I_BK_3
 \qquad
-I_{k,\mathrm{sys}}^{(1g)}=I_BK_{1g},
+I_{k,\mathrm{sys}}^{(1g)}=I_BK_{1g}
 \qquad
-I_{k,\mathrm{sys}}^{(2g)}=K_{2g}I_{k,\mathrm{sys}}^{(3)}.
-\]
+I_{k,\mathrm{sys}}^{(2g)}=K_{2g}I_{k,\mathrm{sys}}^{(3)}
+\$$
 
 每种故障类型的总短路电流为：
 
-\[
+\$$
 I_{k,\mathrm{total}}=I_{k,\mathrm{sys}}+I_{\mathrm{PV,sc}}.
-\]
+\$$
 
 ### 3. 光伏升压站高压侧等值阻抗
 
 高压侧基准阻抗为：
 
-\[
-Z_B=\frac{U_B^2}{S_B}.
-\]
+\$$
+Z_B=\frac{U_B^2}{S_B}
+\$$
 
 T接接入时：
 
-\[
+\$$
 X_{\mathrm{line}}=
-\frac{\left(L_{\mathrm{PV-T}}+L_{\mathrm{T-source}}\right)x'}{Z_B}.
-\]
+\frac{\left(L_{\mathrm{PV-T}}+L_{\mathrm{T-source}}\right)x'}{Z_B}
+\$$
 
 直接接入时：
 
-\[
+\$$
 X_{\mathrm{line}}=
-\frac{L_{\mathrm{PV-source}}x'}{Z_B}.
-\]
+\frac{L_{\mathrm{PV-source}}x'}{Z_B}
+\$$
 
 两种情形均采用：
 
-\[
-X_{\Sigma,\mathrm{PV-HV}}=X_{\Sigma,\mathrm{source}}+X_{\mathrm{line}},
-\]
+\$$
+X_{\Sigma,\mathrm{PV-HV}}=X_{\Sigma,\mathrm{source}}+X_{\mathrm{line}}
+\$$
 
-\[
-X_{\Sigma0,\mathrm{PV-HV}}=X_{\Sigma0,\mathrm{source}}+2.5X_{\mathrm{line}}.
-\]
+\$$
+X_{\Sigma0,\mathrm{PV-HV}}=X_{\Sigma0,\mathrm{source}}+2.5X_{\mathrm{line}}
+\$$
 
 其中 \(2.5\) 仅作用于架空线路正序电抗；系统电源侧给定的零序等值阻抗直接相加，不乘以 \(2.5\)。
 
@@ -154,27 +154,27 @@ X_{\Sigma0,\mathrm{PV-HV}}=X_{\Sigma0,\mathrm{source}}+2.5X_{\mathrm{line}}.
 
 变压器电抗统一到系统基准容量：
 
-\[
-X_T=\frac{u_k\%\times S_B}{100S_N}.
-\]
+\$$
+X_T=\frac{u_k\%\times S_B}{100S_N}
+\$$
 
 当 \(S_B=100\ \mathrm{MVA}\) 时：
 
-\[
-X_T=\frac{u_k\%}{S_N}.
-\]
+\$$
+X_T=\frac{u_k\%}{S_N}
+\$$
 
 低压侧正序短路阻抗及短路电流为：
 
-\[
-X_{\Sigma,\mathrm{PV-LV}}=X_{\Sigma,\mathrm{PV-HV}}+X_T,
-\]
+\$$
+X_{\Sigma,\mathrm{PV-LV}}=X_{\Sigma,\mathrm{PV-HV}}+X_T
+\$$
 
-\[
-I_{k,\mathrm{sys}}^{(3)}=\frac{I_{B,\mathrm{LV}}}{X_{\Sigma,\mathrm{PV-LV}}},
+\$$
+I_{k,\mathrm{sys}}^{(3)}=\frac{I_{B,\mathrm{LV}}}{X_{\Sigma,\mathrm{PV-LV}}}
 \qquad
-I_{k,\mathrm{sys}}^{(2)}=0.866I_{k,\mathrm{sys}}^{(3)}.
-\]
+I_{k,\mathrm{sys}}^{(2)}=0.866I_{k,\mathrm{sys}}^{(3)}
+\$$
 
 低压侧不计算单相接地短路电流；输出中的最后一列称为“两相短路电流”。
 
