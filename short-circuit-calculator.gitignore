@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.log
+*.xlsx
+*.xls
+*.csv
+build/
+dist/
+*.spec
+*.zip
+Thumbs.db
+Desktop.ini
